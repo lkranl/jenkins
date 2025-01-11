@@ -33,9 +33,8 @@ pipeline {
 
     post {
         failure {
-            mail to: 'rodrigo.cruz@unillanos.edu.co',
-                 subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
-                 body: "Something went wrong with the Jenkins build. Please check the console output for more details: ${env.BUILD_URL}"
+            emailext body: "Something went wrong with ${env.JOB_NAME}. Please check the console output for more details: ${env.BUILD_URL}" recipientProviders: 'rodrigo.cruz@unillanos.edu.co' subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
+                 
         }
     }
 }
