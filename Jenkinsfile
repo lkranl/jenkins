@@ -7,6 +7,7 @@ pipeline {
                 branch 'develop'
             }
             steps {
+                echo 'Setting up the environment'
                 sh 'pip install -r requirements.txt'
             }
         }
@@ -16,6 +17,7 @@ pipeline {
                 branch 'develop'
             }
             steps {
+                echo 'Running tests'
                 sh 'python -m unittest discover -s tests'
             }
         }
@@ -25,7 +27,7 @@ pipeline {
                 branch 'develop'
             }
             steps {
-                sh 'echo "Failing to send email"'
+                echo 'Failing to send email'
                 sh 'exit 1'
             }
         }
