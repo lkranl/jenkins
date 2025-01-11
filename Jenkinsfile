@@ -2,15 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            when {
-                branch 'develop'
-            }
-            steps {
-                git 'https://github.com/lkranl/jenkins.git'
-            }
-        }
-
         stage('Setup') {
             when {
                 branch 'develop'
